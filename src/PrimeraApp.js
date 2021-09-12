@@ -1,4 +1,5 @@
 import React, {Fragment} from "react";
+import PropTypes from 'prop-types';
 // import React, {Fragment} from "react";
 
 
@@ -7,16 +8,24 @@ import React, {Fragment} from "react";
  * etiqueta  <Fragment></Fragment> o con la etiquetas cortas <></>
  */
 
-const PrimeraApp = ({saludo = 'Hola mundo'} ) => {
+const PrimeraApp = ({saludo, subtitulo}) => {
 
     console.log(saludo);
 
     return (
         <>
             <h1>{saludo}</h1>
-            <p>Mi primera aplicación</p>
+            <p>{subtitulo}</p>
         </>
     );
+}
+
+PrimeraApp.propTypes = {
+    saludo: PropTypes.string.isRequired,
+};
+
+PrimeraApp.defaultProps = {
+    subtitulo: 'Soy un subtitulo'
 }
 
 export default PrimeraApp;
