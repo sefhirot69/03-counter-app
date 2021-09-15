@@ -48,4 +48,18 @@ describe('Pruebas sobre CounterApp', () => {
         expect( counterText ).toBe('9');
 
     });
+
+    test('Debe resetear al pulsar el boton de reset, el contador en 150', () => {
+
+        const wrapper = shallow(<CounterApp value={150}/>);
+        wrapper.find('button').at(0).simulate('click');
+        wrapper.find('button').at(0).simulate('click');
+        wrapper.find('button').at(0).simulate('click');
+        wrapper.find('button').at(1).simulate('click');
+
+        const counterText = wrapper.find('h2').text().trim();
+
+        expect(counterText).toBe('150');
+
+    });
 });
